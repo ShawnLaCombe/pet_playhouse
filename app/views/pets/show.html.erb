@@ -14,6 +14,14 @@
   <strong>Age:</strong>
   <%= @pet.age %>
 </p>
+<p>
+  <strong>Owner</strong>
+  <ul>
+  <% @pet.owner.each do |owner| %>
+    <li><%= owner.try(:name) %></li>
+  <% end %>
+  </ul>
+</p>
 
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>

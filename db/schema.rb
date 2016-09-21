@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920224953) do
+ActiveRecord::Schema.define(version: 20160921011059) do
+
+  create_table "join_tables", force: :cascade do |t|
+    t.integer  "pet_id"
+    t.integer  "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "join_tables", ["owner_id"], name: "index_join_tables_on_owner_id"
+  add_index "join_tables", ["pet_id"], name: "index_join_tables_on_pet_id"
 
   create_table "owners", force: :cascade do |t|
     t.string   "name"
